@@ -1,0 +1,35 @@
+[project]
+name = "wsim-prep"
+version = "0.1.0"
+description = "Preprocessing pipeline: EA LiDAR + building footprints to simulation-ready grids for the browser"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=1.26",
+    "rasterio>=1.3",
+    "geopandas>=0.14",
+    "shapely>=2.0",
+    "pyproj>=3.6",
+]
+
+[project.scripts]
+wsim-prep = "wsim_prep.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/wsim_prep"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "NPY"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

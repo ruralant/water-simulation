@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:," />
+    <title>Neighbourhood Flood Simulator</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <canvas id="view"></canvas>
+
+    <aside class="panel" id="panel">
+      <h1>Neighbourhood Flood Simulator</h1>
+      <p class="subtitle"><span id="scene-name">Loading…</span> · <span id="scene-size"></span></p>
+
+      <label class="control">
+        <span>Colour</span>
+        <select id="colour-mode">
+          <option value="landCover">Land cover</option>
+          <option value="elevation">Ground elevation (0.5 m contours)</option>
+        </select>
+      </label>
+
+      <label class="control">
+        <span>Vertical exaggeration <output id="vscale-out">1.0×</output></span>
+        <input id="vscale" type="range" min="1" max="5" step="0.5" value="1" />
+      </label>
+
+      <ul class="legend" id="legend"></ul>
+
+      <dl class="readout" id="readout">
+        <dt>Easting, northing</dt><dd id="ro-bng">hover the map</dd>
+        <dt>Ground</dt><dd id="ro-ground">–</dd>
+        <dt>Building height</dt><dd id="ro-building">–</dd>
+        <dt>Land cover</dt><dd id="ro-landcover">–</dd>
+      </dl>
+
+      <p class="hint">Drag to orbit · right-drag or shift-drag to pan · scroll or pinch to zoom</p>
+      <p class="attribution" id="attribution"></p>
+    </aside>
+
+    <div class="message" id="message" hidden></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

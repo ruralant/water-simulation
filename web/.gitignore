@@ -1,0 +1,5 @@
+node_modules/
+dist/
+# Real-area exports can be large; the synthetic scene is committed so the app runs out of the box.
+public/data/*
+!public/data/synthetic/

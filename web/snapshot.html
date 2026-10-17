@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:," />
+    <title>Scene Snapshot</title>
+    <style>
+      body { margin: 0; background: #888; font: 14px system-ui, sans-serif; }
+      img { display: block; max-width: 100%; }
+    </style>
+  </head>
+  <body>
+    <!-- Dev tool: renders a scene offscreen (no canvas presentation) and shows the PNG.
+         Query: ?scene=synthetic&mode=landCover|elevation&yaw=0.6&pitch=0.75&zoom=1&vscale=1&w=1280&h=800 -->
+    <img id="out" alt="Rendered scene" />
+    <pre id="status">rendering…</pre>
+    <script type="module" src="/src/snapshot.ts"></script>
+  </body>
+</html>

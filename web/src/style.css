@@ -1,0 +1,161 @@
+:root {
+  --bg: #dfe6ec;
+  --panel-bg: rgb(255 255 255 / 0.88);
+  --text: #1d2329;
+  --muted: #5b6670;
+  --border: rgb(0 0 0 / 0.12);
+  --accent: #2f6fb0;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #1a1f24;
+    --panel-bg: rgb(28 33 39 / 0.9);
+    --text: #e6ebef;
+    --muted: #9aa6b1;
+    --border: rgb(255 255 255 / 0.14);
+    --accent: #6aa7e6;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme='dark'] {
+  --bg: #1a1f24;
+  --panel-bg: rgb(28 33 39 / 0.9);
+  --text: #e6ebef;
+  --muted: #9aa6b1;
+  --border: rgb(255 255 255 / 0.14);
+  --accent: #6aa7e6;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font: 14px/1.4 system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+#view {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  touch-action: none;
+  cursor: grab;
+}
+
+#view:active {
+  cursor: grabbing;
+}
+
+.panel {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  width: min(320px, calc(100vw - 32px));
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  padding: 14px 16px;
+  background: var(--panel-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  backdrop-filter: blur(6px);
+}
+
+h1 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.subtitle {
+  margin: 2px 0 12px;
+  color: var(--muted);
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.control > span {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+}
+
+.control select,
+.control input {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.legend {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 10px;
+  margin: 4px 0 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-transform: capitalize;
+}
+
+.legend i {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  border: 1px solid var(--border);
+}
+
+.readout {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2px 10px;
+  margin: 0 0 10px;
+  font-variant-numeric: tabular-nums;
+}
+
+.readout dt {
+  color: var(--muted);
+}
+
+.readout dd {
+  margin: 0;
+  text-align: right;
+}
+
+.hint,
+.attribution {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.message {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  text-align: center;
+  background: var(--bg);
+}
+
+.message[hidden] {
+  display: none;
+}
